@@ -1,0 +1,23 @@
+{
+  "name": "catch-click-outside",
+  "version": "0.1.0",
+  "description": "一个捕获绑定元素以外点击事件的vue指令",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helloprogh/catch-click-outside.git"
+  },
+  "keywords": [
+    "click-outside",
+    "catch"
+  ],
+  "author": "sujinqu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helloprogh/catch-click-outside/issues"
+  },
+  "homepage": "https://github.com/helloprogh/catch-click-outside#readme"
+}
