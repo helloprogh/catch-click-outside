@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/helloprogh/catch-click-outside/issues"
   },
-  "homepage": "https://github.com/helloprogh/catch-click-outside#readme"
+  "homepage": "https://github.com/helloprogh/catch-click-outside#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }
