@@ -1,23 +1,34 @@
-var directive = {
-  bind: function bind(el, binding, vnode) {
-    function documentHandler(e) {
-      if (el.contains(e.target)) {
-        return false;
-      }
+import 'core-js/modules/es6.reflect.delete-property';
+import 'core-js/modules/es7.symbol.async-iterator';
+import 'core-js/modules/es6.symbol';
 
-      if (binding.expression) {
-        binding.value(e);
-      }
+var eventsMap = {};
+
+function bind(el, binding) {
+  function documentHandler(e) {
+    if (el.contains(e.target)) {
+      return false;
     }
 
-    el.__vueClickOutside__ = documentHandler;
-    document.addEventListener('click', documentHandler, true);
-  },
-  update: function update() {},
-  unbind: function unbind(el, binding) {
-    document.removeEventListener('click', el.__vueClickOutside__);
-    delete el.__vueClickOutside__;
+    if (binding.expression) {
+      binding.value(e);
+    }
   }
+
+  var fnKey = Symbol.for(el);
+  eventsMap[fnKey] = documentHandler;
+  document.addEventListener('click', documentHandler, true);
+}
+
+function unbind(el) {
+  var fnKey = Symbol.for(el);
+  document.removeEventListener('click', eventsMap[fnKey], true);
+  Reflect.deleteProperty(eventsMap, fnKey);
+}
+
+var directive = {
+  bind: bind,
+  unbind: unbind
 };
 
 var plugin = {

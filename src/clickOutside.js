@@ -1,21 +1,26 @@
-export default {
-    bind (el, binding, vnode) {
-        function documentHandler (e) {
-            if (el.contains(e.target)) {
-                return false;
-            }
-            if (binding.expression) {
-                binding.value(e);
-            }
-        }
-        el.__vueClickOutside__ = documentHandler;
-        document.addEventListener('click', documentHandler, true);
-    },
-    update () {
+let eventsMap = {}
 
-    },
-    unbind (el, binding) {
-        document.removeEventListener('click', el.__vueClickOutside__);
-        delete el.__vueClickOutside__;
+function bind(el, binding) {
+    function documentHandler (e) {
+        if (el.contains(e.target)) {
+            return false;
+        }
+        if (binding.expression) {
+            binding.value(e);
+        }
     }
+    const fnKey = Symbol.for(el);
+    eventsMap[fnKey] = documentHandler;
+    document.addEventListener('click', documentHandler, true);
+}
+
+function unbind(el) {
+    const fnKey = Symbol.for(el);
+    document.removeEventListener('click', eventsMap[fnKey], true);
+    Reflect.deleteProperty(eventsMap, fnKey);
+}
+
+export default {
+    bind,
+    unbind
 }
