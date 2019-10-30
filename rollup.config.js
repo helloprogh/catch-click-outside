@@ -1,15 +1,15 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
 import { uglify } from "rollup-plugin-uglify";
-import commonjs from 'rollup-plugin-commonjs';
+import babel from 'rollup-plugin-babel';
+
 export default {
-    input: './index.js',
-    output: {
-      file: 'bundle.js',
-      format: 'es',
-      name: 'click-outside'
-    },
-    plugins: [
-      uglify()
-    ]
-  };
+  input: './index.js',
+  output: {
+    file: 'bundle.js',
+    format: 'umd',
+    name: 'click-outside'
+  },
+  plugins: [
+    babel(),
+    uglify()
+  ]
+};

@@ -1,4 +1,3 @@
-let eventsMap = {}
 
 function bind(el, binding) {
     function documentHandler (e) {
@@ -9,15 +8,13 @@ function bind(el, binding) {
             binding.value(e);
         }
     }
-    const fnKey = Symbol.for(el);
-    eventsMap[fnKey] = documentHandler;
+    el.__VueClickOutside__ = documentHandler;
     document.addEventListener('click', documentHandler, true);
 }
 
 function unbind(el) {
-    const fnKey = Symbol.for(el);
-    document.removeEventListener('click', eventsMap[fnKey], true);
-    Reflect.deleteProperty(eventsMap, fnKey);
+    document.removeEventListener('click', el.__VueClickOutside__, true);
+    delete el.__VueClickOutside__
 }
 
 export default {
