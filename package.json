@@ -1,5 +1,5 @@
 {
-  "name": "catch-click-outside",
+  "name": "v-clickOutside",
   "version": "0.1.0",
   "description": "一个捕获绑定元素以外点击事件的vue指令",
   "main": "bundle.js",
