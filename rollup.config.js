@@ -10,24 +10,6 @@ export default {
       name: 'click-outside'
     },
     plugins: [
-      // resolve(),
-      babel({
-        exclude: 'node_modules/**',
-        presets: [
-          [
-            '@babel/env',
-            {
-              modules: 'false',
-              targets: {
-                browsers: '> 1%, IE 10, not op_mini all, not dead'
-              },
-              corejs: 3,
-              useBuiltIns: 'usage'
-            }
-          ]
-        ]
-      }),
-      // commonjs(),
-      // uglify()
+      uglify()
     ]
   };
