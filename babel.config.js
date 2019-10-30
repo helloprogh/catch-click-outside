@@ -1,10 +1,12 @@
 const presets = [
     [
-      "@babel/env",
+      "@babel/preset-env",
       {
+        modules: false,
         targets: "> 0.25%, not dead",
-        useBuiltIns: "usage",
-      },
+        corejs: "3", // 声明corejs版本
+        useBuiltIns: "usage"
+      }
     ],
   ];
   

@@ -1,6 +1,7 @@
-import 'core-js/modules/es6.reflect.delete-property';
-import 'core-js/modules/es7.symbol.async-iterator';
-import 'core-js/modules/es6.symbol';
+import 'core-js/modules/es.symbol';
+import 'core-js/modules/es.symbol.description';
+import 'core-js/modules/es.object.to-string';
+import 'core-js/modules/es.reflect.delete-property';
 
 var eventsMap = {};
 
