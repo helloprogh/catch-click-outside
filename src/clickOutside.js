@@ -20,7 +20,9 @@ export function findIndexArr(arr, conditions) {
     return -1
 }
 
-function bind(el, binding) {
+let events = []
+
+export function bind(el, binding) {
     function documentHandler (e) {
         if (el.contains(e.target)) {
             return false;
@@ -29,13 +31,19 @@ function bind(el, binding) {
             binding.value(e);
         }
     }
-    el.__VueClickOutside__ = documentHandler;
+    const event = {
+        el,
+        documentHandler
+    }
+    events.push(event);
     document.addEventListener('click', documentHandler, true);
 }
 
-function unbind(el) {
-    document.removeEventListener('click', el.__VueClickOutside__, true);
-    delete el.__VueClickOutside__
+export function unbind(el) {
+    let index = findIndexArr(events, {el});
+    let instance = events[index];
+    document.removeEventListener('click', instance.documentHandler, true);
+    events.splice(index, 1);
 }
 
 export default {
