@@ -1,4 +1,6 @@
-import { findIndexArr } from "../src/clickOutside";
+import { findIndexArr } from '../src/utils';
+import { eventInstances } from '../src/eventInstances';
+import clickOutside from '../src/clickOutside';
 
 const arr = [
     {
@@ -37,4 +39,27 @@ test('findIndex 2 conditions', ()=>{
 
 test('findIndex not in array', ()=>{
     expect(findIndexArr(arr2, {id: 'test', name: 'test1'})).toBe(-1)
+})
+
+const el = document.createElement('div');
+
+test('bind element', ()=>{
+    const binding = {
+        value(e) {
+            return e
+        }
+    }
+    function bindThenUnbind() {
+        clickOutside.bind(el, binding);
+        return eventInstances.length
+    }
+    expect(bindThenUnbind()).toBe(1)
+})
+
+test('unbind element', ()=>{
+    function bindThenUnbind() {
+        clickOutside.unbind(el);
+        return eventInstances.length
+    }
+    expect(bindThenUnbind()).toBe(0)
 })
