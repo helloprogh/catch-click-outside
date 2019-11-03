@@ -1,6 +1,6 @@
 {
   "name": "v-click-out",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "一个捕获绑定元素以外点击事件的vue指令",
   "main": "bundle.js",
   "scripts": {
@@ -23,12 +23,14 @@
   "homepage": "https://github.com/helloprogh/catch-click-outside#readme",
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.6.3",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "regenerator-runtime": "^0.13.3",
     "rollup": "^1.26.0",
     "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.3"
   },

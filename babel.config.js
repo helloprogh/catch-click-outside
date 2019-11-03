@@ -2,13 +2,14 @@ const presets = [
     [
         "@babel/env",
         {
-            targets: "> 0.25%, not dead",
-            useBuiltIns: "usage",
-            modules: false,
-            corejs: 2
+            modules: false
         },
     ],
 ];
+
+const plugins = [
+    // "@babel/plugin-external-helpers"
+]
 
 const env = {
     "test": {
@@ -16,4 +17,4 @@ const env = {
     }
 }
 
-module.exports = { presets, env };
+module.exports = { presets, env, plugins };
