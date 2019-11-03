@@ -10,10 +10,49 @@
 
 ## 使用
 
+### 安装
+
 ```
 npm i v-click-out
-
 ```
 
+### 引入
+
+
+```javascript
+import Vue from 'vue'
+import clickOutside from 'v-click-out'
+
+Vue.use(clickOutside)
+
+...
+```
+
+```vue
+<template>
+    <p v-click-outside="showSpan">
+      被绑定的元素<br>
+      点击从 dom 中删除的元素
+      <button v-if="isShowSpan" @click="hideSpan">vue-cli documentation</button>.
+    </p>
+</template>
+export default {
+  name: 'HelloWorld',
+  data() {
+    return {
+      isShowSpan: true
+    }
+  },
+  methods: {
+    showSpan() {
+      this.isShowSpan = true;
+      console.log('test')
+    },
+    hideSpan() {
+      this.isShowSpan = false;
+    }
+  }
+}
+```
 
 
