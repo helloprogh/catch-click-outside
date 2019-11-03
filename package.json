@@ -1,6 +1,6 @@
 {
   "name": "v-click-out",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "一个捕获绑定元素以外点击事件的vue指令",
   "main": "bundle.js",
   "scripts": {
